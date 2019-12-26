@@ -10,13 +10,7 @@ function Experience() {
     <div className="row p-2  animated fadeIn ">
       <CardComponent
         title="Junior Reactjs Developer"
-        description="--My work primarily involved working with React and Redux . I quickly understood
-        the code base and improved it over time to make the development process faster. I
-        also collaborated with Back End Developers and handled the ownership of
-        developing front ends of two major feather updates and shipped them to
-        production. Apart from that I also worked on migrating PHP code to React. Along
-        with enhancing my React and Redux concepts, this work experience has also helped
-        me improve my modern JavaScript (ES6) and version control understandings"
+        description="--My work primarily involved working with React, React-router and Redux"
         time="SocialPilot LLP (June 2019 - Dec 2019)"
         image={socialpilotLogo}
         link='https://www.socialpilot.co/'
