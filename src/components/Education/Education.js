@@ -6,9 +6,8 @@ function Education(props) {
     <div class="jumbotron">
       <h3>Education</h3>
       <p class="lead">
-        I have completed my bachelor of technology in the field of Information
-        and Communication Technology at Dhirubhai Ambani Institute of
-        Information and Communication Technology , Gandhinagar.
+        I have completed my bachelor of technology in Computer Engineering from
+        Ldrp-itr , Gandhinagar.
       </p>
       <hr class="my-4" />
       <p>
