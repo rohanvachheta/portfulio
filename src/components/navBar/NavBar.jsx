@@ -1,5 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+
+import "./NavBar.css";
 
 const NavBar = () => {
   return (
@@ -23,7 +25,7 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <li className="nav-item ">
-              <NavLink className="nav-link" to="/exp">
+              <NavLink className="nav-link " to="/exp">
                 Experience
               </NavLink>
             </li>
@@ -33,7 +35,10 @@ const NavBar = () => {
               </NavLink>
             </li>
           </ul>
-          <span class="navbar-text">Rohan Vachheta</span>
+
+          <a href="javaScript:;" >
+            <span class="navbar-text">Rohan Vachheta</span>
+          </a>
         </div>
       </nav>
     </div>
