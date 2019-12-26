@@ -1,15 +1,19 @@
 import React from "react";
 import Pdf from "../../assets/rohanvachhetaResume.pdf";
 
-function Education(props) {
+function Education() {
+  let darkModeClass = "";
+  if (localStorage.getItem("darkMode")) {
+    darkModeClass = " bg-dark text-white border";
+  }
+
   return (
-    <div class="jumbotron">
+    <div className={`shadow-lg p-3 mb-5  rounded ${darkModeClass}  animated fadeIn `}>
       <h3>Education</h3>
-      <p class="lead">
+      <p>
         I have completed my bachelor of technology in Computer Engineering from
         Ldrp-itr , Gandhinagar.
       </p>
-      <hr class="my-4" />
       <p>
         download my resume by clicking this link,
         {"  "}

@@ -7,7 +7,7 @@ import cygnetLogo from "../../assets/logo-white.png";
 
 function Experience() {
   return (
-    <div className="row p-2">
+    <div className="row p-2  animated fadeIn ">
       <CardComponent
         title="Junior Reactjs Developer"
         description="--My work primarily involved working with React and Redux . I quickly understood

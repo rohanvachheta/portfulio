@@ -1,20 +1,25 @@
 import React from "react";
 
-function CardComponent({ title, description, image, time, imageClass,link }) {
+function CardComponent({ title, description, image, time, imageClass, link }) {
+  let darkModeClass = "bg-white";
+  if (localStorage.getItem("darkMode")) {
+    darkModeClass = " bg-dark text-white border";
+  }
+
   return (
     <div class="col-sm-6 ">
       <div
-        className="card mb-3 shadow-sm p-3 mb-5 bg-white rounded"
+        className={`card mb-3 shadow-sm p-3 mb-5 ${darkModeClass} rounded`}
         style={{ maxWidth: "540px" }}
       >
         <div className="row no-gutters">
           <div className="col-md-4">
-            <a href={link} className="company-logo" target='blank'>
-            <img
-              src={image || "https://i.picsum.photos/id/1009/5000/7502.jpg"}
-              className={`card-img mt-3  ${imageClass}`}
-              alt="..."
-            />
+            <a href={link} className="company-logo" target="blank">
+              <img
+                src={image || "https://i.picsum.photos/id/1009/5000/7502.jpg"}
+                className={`card-img mt-3  ${imageClass}`}
+                alt="..."
+              />
             </a>
           </div>
           <div className="col-md-8">

@@ -2,3 +2,9 @@
   max-height: 600px;
   max-width: 530px;
 }
+
+.follow-icon{
+  font-size: 28px;
+  cursor: pointer;
+}
+

@@ -32,19 +32,24 @@ const projectsArray = [
 ];
 
 const Project = () => {
+  let darkModeClass = "bg-white";
+  if (localStorage.getItem("darkMode")) {
+    darkModeClass = " bg-dark text-white border";
+  }
+
   return (
     <div className="row p-3">
       {projectsArray.map(({ image, title, smallTitle, desription }) => {
         return (
-          <div className="p-3 d-flex col-lg-6">
-            <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+          <div className="p-3 d-flex col-lg-6 " key={title}>
+            <div className={`card shadow-sm p-3 mb-5 ${darkModeClass} rounded`}>
               {/* <div class="card-header">{title}</div> */}
-              <div class="card-body  ">
-                <h5 class="card-title">
+              <div className="card-body  ">
+                <h5 className="card-title">
                   {title + "  "}
-                  <small class=" text-info">{smallTitle}</small>
+                  <small className=" text-info">{smallTitle}</small>
                 </h5>
-                <p class="card-text">{desription}</p>
+                <p className="card-text">{desription}</p>
               </div>
             </div>
           </div>

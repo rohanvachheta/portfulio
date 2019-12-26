@@ -1,12 +1,28 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./NavBar.css";
 
 const NavBar = () => {
+  let darkModeClass = "navbar-light bg-light";
+  if (localStorage.getItem("darkMode")) {
+    darkModeClass = "navbar-dark bg-dark";
+  }
+
+  const handleSwithChange = event => {
+    if (event.target.checked) {
+      window.localStorage.setItem("darkMode", true);
+    } else {
+      window.localStorage.clear();
+    }
+    window.location.reload();
+  };
+
+  // const IsCheckedDarkMode=
+
   return (
     <div className="mb-5">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className={`navbar navbar-expand-lg ${darkModeClass}`}>
         <button
           className="navbar-toggler"
           type="button"
@@ -36,8 +52,20 @@ const NavBar = () => {
             </li>
           </ul>
 
-          <a href="javaScript:;" >
-            <span class="navbar-text">Rohan Vachheta</span>
+          <div className="custom-control custom-switch">
+            <input
+              type="checkbox"
+              className="custom-control-input"
+              id="customSwitch1"
+              onChange={handleSwithChange}
+              checked={!!localStorage.getItem("darkMode")}
+            />
+            <label className="custom-control-label" htmlFor="customSwitch1">
+              Dark Mode
+            </label>
+          </div>
+          <a>
+            <span className="navbar-text">Rohan Vachheta</span>
           </a>
         </div>
       </nav>
