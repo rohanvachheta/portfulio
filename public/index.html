@@ -16,15 +16,20 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
 
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    
+
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -65,5 +70,43 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <script>
+      var deferredPrompt;
+
+      window.addEventListener("beforeinstallprompt", function(e) {
+        console.log("beforeinstallprompt Event fired");
+        e.preventDefault();
+
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+
+        callfun();
+
+        return false;
+      });
+      const btnSave = document.querySelector(".button-name");
+
+      function callfun() {
+        if (deferredPrompt !== undefined) {
+          // The user has had a postive interaction with our app and Chrome
+          // has tried to prompt previously, so let's show the prompt.
+          deferredPrompt.prompt();
+
+          // Follow what the user has done with the prompt.
+          deferredPrompt.userChoice.then(function(choiceResult) {
+            console.log(choiceResult.outcome);
+
+            if (choiceResult.outcome == "dismissed") {
+              console.log("User cancelled home screen install");
+            } else {
+              console.log("User added to home screen");
+            }
+
+            // We no longer need the prompt.  Clear it up.
+            deferredPrompt = null;
+          });
+        }
+      }
+    </script>
   </body>
 </html>
