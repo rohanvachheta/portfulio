@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "babel-polyfill";
 
 // pages
 import NavBar from "./components/navBar/NavBar";

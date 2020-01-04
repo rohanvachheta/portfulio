@@ -128,6 +128,7 @@ export default class CustomEmojiEditor extends Component {
             editorState={this.state.editorState}
             onChange={this.onChange}
             plugins={plugins}
+            useNativeArt
             ref={element => {
               this.editor = element;
             }}
