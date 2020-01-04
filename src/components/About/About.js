@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import LinkEditorExample from "../DraftJsExmp";
 
 function About(props) {
   return (
@@ -41,10 +42,13 @@ function About(props) {
       </div>
       <div className="col col-sm-6">
         <img
+          alt="we-do"
           className="about--user_image shadow p-3 mb-5 bg-white rounded"
           src="https://i.picsum.photos/id/1/5616/3744.jpg"
         />
       </div>
+
+      <LinkEditorExample />
     </div>
   );
 }

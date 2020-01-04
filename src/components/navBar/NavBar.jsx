@@ -34,12 +34,14 @@ const NavBar = () => {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <NavLink className="navbar-brand" to="/">
-          Home
-        </NavLink>
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/" exact>
+                Home
+              </NavLink>
+            </li>
             <li className="nav-item ">
               <NavLink className="nav-link " to="/exp">
                 Experience

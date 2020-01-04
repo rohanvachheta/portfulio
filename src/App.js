@@ -11,14 +11,17 @@ import Project from "./components/Projects/Project";
 
 // css
 import "./App.css";
+import SpringExp from "./components/LearnSpring/SpringExp";
 
 function App() {
   let darkModeClass = "bg-white";
   if (localStorage.getItem("darkMode")) {
     darkModeClass = " bg-dark text-white";
   }
+  // return <SpringExp />;
+
   return (
-    <div className={darkModeClass} style={{height:'100vh'}}>
+    <div className={darkModeClass} style={{ height: "100vh" }}>
       <div className="container">
         <Router>
           <NavBar />

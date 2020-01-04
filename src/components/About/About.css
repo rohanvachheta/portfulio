@@ -3,8 +3,13 @@
   max-width: 530px;
 }
 
-.follow-icon{
+.follow-icon {
   font-size: 28px;
   cursor: pointer;
 }
 
+@media only screen and (max-width: 600px) {
+  .about--user_image {
+    width: 350px;
+  }
+}
