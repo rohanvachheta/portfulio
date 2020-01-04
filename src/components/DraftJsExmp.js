@@ -14,7 +14,7 @@ import "../../node_modules/draft-js-linkify-plugin/lib/plugin.css";
 import "../../node_modules/draft-js-emoji-plugin/lib/plugin.css";
 import "../../node_modules/draft-js-inline-toolbar-plugin/lib/plugin.css";
 
-import editorStyles from "./Editor/editorStyles.css";
+import "./Editor/editorStyles.css";
 
 const mentions = [
   {
@@ -57,7 +57,6 @@ const emojiPlugin = createEmojiPlugin({
 });
 const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
 
-const plugins = [emojiPlugin];
 const text = `Cool, we can have all sorts of Emojis here. 🙌
 🌿☃️🎉🙈 send me anything you like `;
 
@@ -110,7 +109,6 @@ export default class CustomEmojiEditor extends Component {
     });
 
     const inlineToolbarPlugin = createInlineToolbarPlugin();
-    const { InlineToolbar } = inlineToolbarPlugin;
 
     const plugins = [
       this.mentionPlugin,
@@ -121,7 +119,7 @@ export default class CustomEmojiEditor extends Component {
     ];
 
     return (
-      <div>
+      <div className="m-2">
         <p className="n-3 text-info">send me a Note : </p>
         <div className="editor" onClick={this.focus}>
           <Editor
@@ -133,6 +131,7 @@ export default class CustomEmojiEditor extends Component {
               this.editor = element;
             }}
           />
+
           <MentionSuggestions
             onSearchChange={this.onSearchChange}
             suggestions={this.state.suggestions}

@@ -12,6 +12,7 @@ import Project from "./components/Projects/Project";
 // css
 import "./App.css";
 import SpringExp from "./components/LearnSpring/SpringExp";
+import PivotTable from "./components/PivotTable/PivotTable";
 
 function App() {
   let darkModeClass = "bg-white";
@@ -33,6 +34,7 @@ function App() {
             <Route path="/Projects" component={Project} exact />
 
             <Route path="/edu" component={Education} exact />
+            <Route path="/pivottable" component={PivotTable} />
             <Route component={NotFound} />
           </Switch>
         </Router>
