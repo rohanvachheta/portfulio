@@ -11,7 +11,7 @@ function Experience() {
       <CardComponent
         title="Junior Reactjs Developer"
         description="--My work primarily involved working with React, React-router and Redux"
-        time="SocialPilot LLP (June 2019 - Dec 2019)"
+        time="SocialPilot LLP (June 2019 - Present)"
         image={socialpilotLogo}
         link='https://www.socialpilot.co/'
       />
