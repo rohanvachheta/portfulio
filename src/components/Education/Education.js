@@ -8,14 +8,14 @@ function Education() {
   }
 
   return (
-    <div className={`shadow-lg p-3 mb-5  rounded ${darkModeClass}  animated fadeIn `}>
+    <div className={` ${darkModeClass}  animated fadeIn `}>
       <h3>Education</h3>
       <p>
         I have completed my bachelor of technology in Computer Engineering from
         Ldrp-itr , Gandhinagar.
       </p>
       <p>
-        download my resume by clicking this link,
+        download my resume by clicking this link.
         {"  "}
         <a class="text-info" href={Pdf} target="blank" role="button">
           view/download resume

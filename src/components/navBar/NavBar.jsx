@@ -44,7 +44,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item ">
               <NavLink className="nav-link " to="/exp">
-                Experience
+                Education/Exp
               </NavLink>
             </li>
             <li className="nav-item">
@@ -54,7 +54,7 @@ const NavBar = () => {
             </li>
           </ul>
 
-          <div className="custom-control custom-switch">
+          {/* <div className="custom-control custom-switch">
             <input
               type="checkbox"
               className="custom-control-input"
@@ -65,7 +65,7 @@ const NavBar = () => {
             <label className="custom-control-label" htmlFor="customSwitch1">
               Dark Mode
             </label>
-          </div>
+          </div> */}
           <a>
             <span className="navbar-text">Rohan Vachheta</span>
           </a>

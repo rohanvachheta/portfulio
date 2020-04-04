@@ -8,6 +8,11 @@
   cursor: pointer;
 }
 
+.about--user_image {
+  width: 400px;
+  height: 400px;
+}
+
 @media only screen and (max-width: 600px) {
   .about--user_image {
     width: 350px;

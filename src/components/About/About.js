@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import portfulio from "./../../assets/portfulio.jpg";
 import LinkEditorExample from "../DraftJsExmp";
 
 function About(props) {
@@ -17,11 +18,19 @@ function About(props) {
           me leraning, capturing photos or listening Music.
         </p>
         <p className="m-2 d-inline">follow me on :</p>
-        <a target="blank" className=" linkedin text-info">
+        <a
+          target="blank"
+          href="https://www.linkedin.com/in/rohan-vachheta-42370215a/"
+          className=" linkedin text-info"
+        >
           <i class="fab fa-linkedin follow-icon"></i>
         </a>
 
-        <a target="blank" className=" facebook text-primary">
+        <a
+          target="blank"
+          href="https://www.facebook.com/rohanvachhta"
+          className=" facebook text-primary"
+        >
           <i class="fab fa-facebook-f follow-icon"></i>
         </a>
 
@@ -43,12 +52,12 @@ function About(props) {
       <div className="col col-sm-6">
         <img
           alt="we-do"
-          className="about--user_image shadow p-3 mb-5 bg-white rounded"
-          src="https://i.picsum.photos/id/1/5616/3744.jpg"
+          className="about--user_image  float-right"
+          src={portfulio}
         />
       </div>
 
-      <LinkEditorExample />
+      {/* <LinkEditorExample /> */}
     </div>
   );
 }
