@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#000000" />
     <meta name="portfulio" content="rohan vachheta portfulio" />
     <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -19,7 +19,7 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
-    />
+    /> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
@@ -74,7 +74,7 @@
     <script>
       var deferredPrompt;
 
-      window.addEventListener("beforeinstallprompt", function(e) {
+      window.addEventListener("beforeinstallprompt", function (e) {
         console.log("beforeinstallprompt Event fired");
         e.preventDefault();
 
@@ -94,7 +94,7 @@
           deferredPrompt.prompt();
 
           // Follow what the user has done with the prompt.
-          deferredPrompt.userChoice.then(function(choiceResult) {
+          deferredPrompt.userChoice.then(function (choiceResult) {
             console.log(choiceResult.outcome);
 
             if (choiceResult.outcome == "dismissed") {

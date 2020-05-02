@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // pages
 import NavBar from "./components/navBar/NavBar";
 import NotFound from "./components/NoMatchFound/NotFound";
+import AppNew from "./components/facebook/App";
 import About from "./components/About/About";
 import Experience from "./components/Exp/Experience";
 import Education from "./components/Education/Education";
@@ -23,11 +24,11 @@ function App() {
 
   return (
     <div className={darkModeClass} style={{ height: "100vh" }}>
-      <div className="container">
+      <div className="">
         <Router>
-          <NavBar />
+          {/* <NavBar /> */}
           <Switch>
-            <Route path="/" component={About} exact />
+            <Route path="/" component={AppNew} exact />
 
             <Route path="/exp" component={Experience} exact />
 
