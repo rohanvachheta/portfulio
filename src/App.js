@@ -11,9 +11,16 @@ import Education from "./components/Education/Education";
 import Project from "./components/Projects/Project";
 
 // css
-import "./App.css";
+// import "./App.css";
 import SpringExp from "./components/LearnSpring/SpringExp";
 import PivotTable from "./components/PivotTable/PivotTable";
+import TestNewUI from "./components/testnew/TestNewUI";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faEnvelope, faKey, fas);
 
 function App() {
   let darkModeClass = "bg-white";
@@ -28,7 +35,7 @@ function App() {
         <Router>
           {/* <NavBar /> */}
           <Switch>
-            <Route path="/" component={AppNew} exact />
+            <Route path="/" component={TestNewUI} exact />
 
             <Route path="/exp" component={Experience} exact />
 

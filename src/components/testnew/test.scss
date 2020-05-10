@@ -1,0 +1,253 @@
+.new-ui {
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+
+  /* backgroumd image url  */
+  background-image: url("https://images.unsplash.com/photo-1496531693211-31c5234a5ea9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+}
+html {
+  box-sizing: border-box;
+  color: white;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.front-bottom h1 {
+  font-size: 70px;
+}
+
+.card {
+  width: 250px;
+  height: 400px;
+  margin: 15px;
+}
+
+.card {
+  position: relative;
+  width: 320px;
+  background: white;
+  box-shadow: 0 0 0.4rem rgba(black, 0.05);
+  border-radius: 0.4rem;
+  overflow: hidden;
+
+  .card-header {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 200px;
+    background-image: url("https://img1.ak.crunchyroll.com/i/spire4/5f9d50bdd044a1579c4cd4abd27052741578512245_full.jpg");
+    background-position: center;
+    background-size: cover;
+
+    transition: height 0.3s;
+
+    &:hover {
+      height: 375px;
+
+      & + .card-body {
+        height: 29px;
+      }
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      color: inherit;
+
+      margin: 0;
+
+      padding: 0.5rem 1rem;
+      padding-top: 1.2rem;
+
+      background: linear-gradient(transparent, white 60%);
+    }
+  }
+
+  .card-body {
+    height: 208px;
+    overflow: hidden;
+
+    padding: 0 1rem;
+
+    transition: 0.3s;
+
+    .sub-text {
+      font-size: 0.9rem;
+      color: #646b75;
+    }
+  }
+
+  .card-link-footer {
+    display: block;
+
+    padding: 1rem;
+
+    font-weight: bold;
+    color: #d96c0f;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+
+    &:hover {
+      color: white;
+      box-shadow: inset 0 -56px 0 #d96c0f;
+      transition: 0.2s;
+    }
+  }
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mb-1 {
+  margin-bottom: 0.4rem;
+}
+
+.list-episodes {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 -1rem;
+  color: #646b75;
+
+  li {
+    padding-left: 0.6rem;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+
+      padding: 0.4rem 1rem;
+      padding-left: 0.4rem;
+
+      transition: transform 0.1s;
+
+      &:hover {
+        transform: translateX(4px);
+
+        transition: transform 0.1s;
+      }
+
+      b {
+        font-size: 0.8rem;
+        margin-right: 4px;
+      }
+    }
+
+    &:nth-child(even) {
+      div {
+        border-radius: 4px 0 0 4px;
+        background: rgba(#eff1f5, 0.9);
+      }
+    }
+  }
+}
+
+.card-lists {
+  display: flex;
+  margin: 2px;
+}
+
+.margint-tp {
+  margin-top: 20px;
+}
+
+.list-item-details {
+  margin-top: 30px;
+  // margin-left: 7px;
+  padding: 7px;
+}
+
+.list-item-details h1 {
+  font-size: 40px !important;
+}
+
+.left-side {
+  display: flex;
+  align-items: stretch;
+}
+
+h1,
+h2,
+h3 {
+  color: white;
+}
+.btn-outline-light {
+  border-radius: 20px;
+}
+
+h4 {
+  color: white;
+  opacity: 0.7;
+}
+
+nav {
+  width: 100%;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  padding: 10px;
+}
+
+.front-bottom {
+  margin-top: 240px;
+}
+
+.new-ui {
+  padding: 30px;
+}
+.logo {
+  display: inline-block;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-right: 30px;
+}
+
+.nav-item a {
+  display: inline-block;
+  padding: 0px 15px;
+  text-decoration: none;
+  color: white;
+}
+.logo,
+.icon {
+  color: white;
+}
+
+.logo img {
+  width: 175px;
+  vertical-align: middle;
+}
+
+.text-opacity {
+  opacity: 0.7;
+  color: white;
+}
