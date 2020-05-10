@@ -74,10 +74,11 @@ function DropdownMenu() {
     );
   }
 
+  console.log("rohan23", menuHeight);
   return (
     <div
       className="dropdown"
-      style={{ height: menuHeight || "auto" }}
+      style={{ height: menuHeight + 60 || "auto" }}
       ref={dropdownRef}
     >
       <CSSTransition
