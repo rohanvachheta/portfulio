@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
-        .register("/custom-service-worker.js")
+        .register("custom-service-worker.js")
         .then((reg) => {
           if (reg.waiting) {
             // a new version is already waiting to take control
