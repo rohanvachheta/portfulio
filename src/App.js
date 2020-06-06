@@ -28,13 +28,16 @@ library.add(faEnvelope, faKey, fas);
 
 function App() {
   console.log("version chane");
+
   useEffect(() => {
     if ("serviceWorker" in navigator) {
+      console.log("roah12 update version");
       navigator.serviceWorker
         .register("custom-service-worker.js")
         .then((reg) => {
           if (reg.waiting) {
             window.alert("new ver");
+
             // a new version is already waiting to take control
             this.newWorker = reg.waiting;
             window.confirm("new verison bro");
