@@ -72,10 +72,18 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      if (navigator.standalone) {
-        alert("Thanks for using our PWA!");
-      } else {
-        // alert("Please consider downloading our PWA.");
+      if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.onstatechange = function (e) {
+          if (e.target.state === "redundant") {
+            var tapHandler = function () {
+              window.location.reload();
+            };
+            IOWA.Elements.Toast.showMessage(
+              "Tap here or refresh the page for the latest content.",
+              tapHandler
+            );
+          }
+        };
       }
 
       self.addEventListener("activate", function (event) {
