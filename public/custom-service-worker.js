@@ -8,12 +8,11 @@ if (workbox) {
   console.log(`Boo! Workbox didn't load 😬`);
 }
 
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
-});
+// Path prefix to load modules locally
+workbox.setConfig({ debug: true });
 
+// Updating SW lifecycle to update the app after user triggered refresh
+workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
 /**

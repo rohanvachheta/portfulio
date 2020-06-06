@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // pages
@@ -9,6 +9,7 @@ import About from "./components/About/About";
 import Experience from "./components/Exp/Experience";
 import Education from "./components/Education/Education";
 import Project from "./components/Projects/Project";
+import { Workbox } from "workbox-window";
 
 // css
 // import "./App.css";
@@ -25,6 +26,24 @@ import ThirdNewUI from "./components/third/ThirdNewUI";
 library.add(faEnvelope, faKey, fas);
 
 function App() {
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      const wb = new Workbox("custom-service-worker.js");
+
+      wb.addEventListener("installed", (event) => {
+        if (event.isUpdate) {
+          if (
+            window.confirm(`New content is available!. Click OK to refresh`)
+          ) {
+            window.location.reload();
+          }
+        }
+      });
+
+      wb.register();
+    }
+  }, []);
+
   let darkModeClass = "bg-white";
   if (localStorage.getItem("darkMode")) {
     darkModeClass = " bg-dark text-white";
