@@ -5,7 +5,7 @@ const packageJson = require("./package.json");
 const appVersion = packageJson.version;
 
 const jsonData = {
-  version: appVersion,
+  version: Math.random().toString(),
 };
 
 var jsonContent = JSON.stringify(jsonData);
