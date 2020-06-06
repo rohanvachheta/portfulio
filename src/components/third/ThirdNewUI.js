@@ -1,5 +1,6 @@
 /* eslint-disable no-script-url */
 import React, { useState } from "react";
+import ClearCache from "react-clear-cache";
 import { Spring } from "react-spring/renderprops";
 
 import PropTypes from "prop-types";
@@ -25,6 +26,28 @@ const ThirdNewUI = (props) => {
               className={`stracted ${stractched && "ready_to_big"}`}
               style={props}
             >
+              <ClearCache>
+                {({ isLatestVersion, emptyCacheStorage }) => {
+                  console.log("ThirdNewUI -> isLatestVersion", isLatestVersion);
+                  return (
+                    <div>
+                      {!isLatestVersion && (
+                        <p>
+                          <a
+                            href="#"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              emptyCacheStorage();
+                            }}
+                          >
+                            Update version
+                          </a>
+                        </p>
+                      )}
+                    </div>
+                  );
+                }}
+              </ClearCache>
               <SideBarThird />
             </div>
           )}
