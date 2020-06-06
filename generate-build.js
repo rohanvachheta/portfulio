@@ -18,7 +18,7 @@ fs.writeFile("./public/meta.json", jsonContent, "utf8", function (err) {
 
   console.log(
     "meta.json file has been saved with latest version number",
-    version
+    jsonContent
   );
 });
 
