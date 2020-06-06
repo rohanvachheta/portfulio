@@ -27,6 +27,7 @@ import CacheBuster from "./CacheBuster";
 library.add(faEnvelope, faKey, fas);
 
 function App() {
+  console.log("version chane");
   useEffect(() => {
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
