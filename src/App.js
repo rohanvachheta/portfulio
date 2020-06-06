@@ -32,6 +32,7 @@ function App() {
         .register("custom-service-worker.js")
         .then((reg) => {
           if (reg.waiting) {
+            window.alert("new ver");
             // a new version is already waiting to take control
             this.newWorker = reg.waiting;
             window.confirm("new verison bro");
