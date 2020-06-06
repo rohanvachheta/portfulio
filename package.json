@@ -40,7 +40,7 @@
     "eject": "react-scripts eject",
     "textwatch": "sudo sysctl -w fs.inotify.max_user_watches=1000000",
     "prebuild": "npm run generate-build-version",
-    "generate-build-version": "node generate-build-version"
+    "generate-build-version": "node generate-build"
   },
   "eslintConfig": {
     "extends": "react-app"
