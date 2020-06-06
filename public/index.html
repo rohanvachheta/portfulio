@@ -72,6 +72,12 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      if (navigator.standalone) {
+        alert("Thanks for using our PWA!");
+      } else {
+        alert("Please consider downloading our PWA.");
+      }
+
       var deferredPrompt;
 
       window.addEventListener("beforeinstallprompt", function (e) {

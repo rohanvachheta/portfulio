@@ -19,6 +19,8 @@ import TestNewUI from "./components/testnew/TestNewUI";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import SecoundNewUI from "./components/secoundNew/SecoundNewUI";
+import ThirdNewUI from "./components/third/ThirdNewUI";
 
 library.add(faEnvelope, faKey, fas);
 
@@ -35,7 +37,7 @@ function App() {
         <Router>
           {/* <NavBar /> */}
           <Switch>
-            <Route path="/" component={TestNewUI} exact />
+            <Route path="/" component={ThirdNewUI} exact />
 
             <Route path="/exp" component={Experience} exact />
 
