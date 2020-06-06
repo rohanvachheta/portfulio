@@ -5,7 +5,7 @@ const packageJson = require("./package.json");
 const appVersion = packageJson.version;
 
 const jsonData = {
-  version: Math.random().toString(),
+  version: appVersion,
 };
 
 var jsonContent = JSON.stringify(jsonData);
@@ -16,7 +16,10 @@ fs.writeFile("./public/meta.json", jsonContent, "utf8", function (err) {
     return console.log(err);
   }
 
-  console.log("meta.json file has been saved with latest version number");
+  console.log(
+    "meta.json file has been saved with latest version number",
+    version
+  );
 });
 
 /* eslint-enable */
