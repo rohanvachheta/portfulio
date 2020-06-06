@@ -32,11 +32,7 @@ function App() {
 
       wb.addEventListener("installed", (event) => {
         if (event.isUpdate) {
-          if (
-            window.confirm(`New content is available!. Click OK to refresh`)
-          ) {
-            window.location.reload();
-          }
+          //  updte
         }
       });
 
