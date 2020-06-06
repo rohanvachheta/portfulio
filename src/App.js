@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ClearCache from "react-clear-cache";
 
 // pages
 import NavBar from "./components/navBar/NavBar";
@@ -87,6 +88,25 @@ function App() {
 
         return (
           <div className="App">
+            <ClearCache>
+              {({ isLatestVersion, emptyCacheStorage }) => (
+                <div>
+                  {!isLatestVersion && (
+                    <p>
+                      <a
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          emptyCacheStorage();
+                        }}
+                      >
+                        Update version
+                      </a>
+                    </p>
+                  )}
+                </div>
+              )}
+            </ClearCache>
             <div className={darkModeClass} style={{ height: "100vh" }}>
               <div className="">
                 <Router>
