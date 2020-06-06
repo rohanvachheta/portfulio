@@ -27,7 +27,7 @@ library.add(faEnvelope, faKey, fas);
 
 function App() {
   useEffect(() => {
-    window.confirm(`New content is available!. Click OK to refresh`);
+    // window.confirm(`New content is available!. Click OK to refresh`);
   }, []);
 
   let darkModeClass = "bg-white";
