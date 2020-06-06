@@ -1,6 +1,6 @@
+import meta from "./meta.json";
 import React from "react";
-import packageJson from "../package.json";
-global.appVersion = packageJson.version;
+const fs = require("fs");
 
 // version from response - first param, local version second param
 const semverGreaterThan = (versionA, versionB) => {
@@ -41,11 +41,12 @@ class CacheBuster extends React.Component {
   }
 
   componentDidMount() {
-    fetch("/meta.json")
-      .then((response) => response.json())
-      .then((meta) => {
+    try {
+      fs.readFile("./meta.json", "utf8", function (err, data) {
+        if (err) throw err;
+        meta = JSON.parse(data);
         const latestVersion = meta.version;
-        const currentVersion = global.appVersion;
+        const currentVersion = localStorage.getItem("version");
 
         const shouldForceRefresh = semverGreaterThan(
           latestVersion,
@@ -55,6 +56,7 @@ class CacheBuster extends React.Component {
           console.log(
             `We have a new version - ${latestVersion}. Should force refresh`
           );
+          localStorage.setItem("version", latestVersion);
           this.setState({ loading: false, isLatestVersion: false });
         } else {
           console.log(
@@ -63,6 +65,9 @@ class CacheBuster extends React.Component {
           this.setState({ loading: false, isLatestVersion: true });
         }
       });
+    } catch (error) {
+      console.log("CacheBuster -> componentDidMount -> error", error);
+    }
   }
   render() {
     const { loading, isLatestVersion, refreshCacheAndReload } = this.state;
