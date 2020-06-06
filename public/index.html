@@ -72,6 +72,25 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      // clean up old SW caches
+      self.addEventListener("activate", function (event) {
+        event.waitUntil(
+          caches.keys().then(function (cacheNames) {
+            let validCacheSet = new Set(Object.values(currentCacheNames));
+            return Promise.all(
+              cacheNames
+                .filter(function (cacheName) {
+                  return !validCacheSet.has(cacheName);
+                })
+                .map(function (cacheName) {
+                  console.log("deleting cache", cacheName);
+                  return caches.delete(cacheName);
+                })
+            );
+          })
+        );
+      });
+
       var deferredPrompt;
 
       window.addEventListener("beforeinstallprompt", function (e) {
