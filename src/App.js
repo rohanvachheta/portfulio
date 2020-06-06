@@ -22,6 +22,7 @@ import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import SecoundNewUI from "./components/secoundNew/SecoundNewUI";
 import ThirdNewUI from "./components/third/ThirdNewUI";
+import CacheBuster from "./CacheBuster";
 
 library.add(faEnvelope, faKey, fas);
 
@@ -73,24 +74,37 @@ function App() {
   // return <SpringExp />;
 
   return (
-    <div className={darkModeClass} style={{ height: "100vh" }}>
-      <div className="">
-        <Router>
-          {/* <NavBar /> */}
-          <Switch>
-            <Route path="/" component={ThirdNewUI} exact />
+    <CacheBuster>
+      {({ loading, isLatestVersion, refreshCacheAndReload }) => {
+        if (loading) return null;
+        if (!loading && !isLatestVersion) {
+          refreshCacheAndReload();
+        }
 
-            <Route path="/exp" component={Experience} exact />
+        return (
+          <div className="App">
+            <div className={darkModeClass} style={{ height: "100vh" }}>
+              <div className="">
+                <Router>
+                  {/* <NavBar /> */}
+                  <Switch>
+                    <Route path="/" component={ThirdNewUI} exact />
 
-            <Route path="/Projects" component={Project} exact />
+                    <Route path="/exp" component={Experience} exact />
 
-            <Route path="/edu" component={Education} exact />
-            <Route path="/pivottable" component={PivotTable} />
-            <Route component={NotFound} />
-          </Switch>
-        </Router>
-      </div>
-    </div>
+                    <Route path="/Projects" component={Project} exact />
+
+                    <Route path="/edu" component={Education} exact />
+                    <Route path="/pivottable" component={PivotTable} />
+                    <Route component={NotFound} />
+                  </Switch>
+                </Router>
+              </div>
+            </div>
+          </div>
+        );
+      }}
+    </CacheBuster>
   );
 }
 
