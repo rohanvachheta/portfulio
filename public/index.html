@@ -10,6 +10,51 @@
     <meta name="theme-color" content="#000000" />
     <meta name="portfulio" content="rohan vachheta portfulio" />
     <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> -->
+
+    <style>
+      #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+      }
+
+      #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s;
+        animation: fadein 0.5s;
+      }
+
+      @-webkit-keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+    </style>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -46,6 +91,11 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <div id="snackbar">
+      A new version of this app is available. Click <a id="reload">here</a> to
+      update.
+    </div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -72,6 +122,40 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/custom-service-worker.js")
+          .then((reg) => {
+            reg.addEventListener("updatefound", () => {
+              // A wild service worker has appeared in reg.installing!
+              newWorker = reg.installing;
+
+              newWorker.addEventListener("statechange", () => {
+                // Has network.state changed?
+                switch (newWorker.state) {
+                  case "installed":
+                    if (navigator.serviceWorker.controller) {
+                      // new update available
+                      showUpdateBar();
+                    }
+                    // No update available
+                    break;
+                }
+              });
+            });
+          });
+
+        let refreshing;
+        navigator.serviceWorker.addEventListener(
+          "controllerchange",
+          function () {
+            if (refreshing) return;
+            window.location.reload();
+            refreshing = true;
+          }
+        );
+      }
+
       // clean up old SW caches
       self.addEventListener("activate", function (event) {
         event.waitUntil(
