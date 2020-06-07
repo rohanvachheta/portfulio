@@ -34,8 +34,8 @@ function App() {
       const version = window.localStorage.getItem("version");
       console.log("App -> version", version);
       if (version && parseInt(version) !== 1) {
-        window.confirm(`New content is available!. Click OK to refresh`);
         window.localStorage.setItem("version", 1);
+        window.location.reload();
         return;
       }
       window.localStorage.setItem("version", 2);
