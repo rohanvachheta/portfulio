@@ -73,10 +73,15 @@ function App() {
       //
     }
 
-    const version = localStorage.getItem("version");
-    if (!version || version !== 1) {
-      console.log("rohan123 reload");
-      localStorage.setItem("version", 1);
+    try {
+      const version = window.localStorage.getItem("version");
+
+      if (!version || version !== 1) {
+        console.log("rohan123 reload");
+        window.localStorage.setItem("version", 1);
+      }
+    } catch (error) {
+      //
     }
     // window.confirm(`New content is available!. Click OK to refresh`);
   }, []);
