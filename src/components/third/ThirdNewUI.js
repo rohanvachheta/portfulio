@@ -1,9 +1,7 @@
 /* eslint-disable no-script-url */
 import React, { useState } from "react";
-import ClearCache from "react-clear-cache";
 import { Spring } from "react-spring/renderprops";
 
-import PropTypes from "prop-types";
 import SideBarThird from "./SideBarThird";
 import "../navBar/NavBar.css";
 

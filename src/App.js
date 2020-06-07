@@ -31,59 +31,15 @@ function App() {
 
   useEffect(() => {
     try {
-      if ("serviceWorker" in navigator) {
-        console.log("roah12 update version");
-        navigator.serviceWorker
-          .register("custom-service-worker.js")
-          .then((reg) => {
-            if (reg.waiting) {
-              window.alert("new ver");
-
-              // a new version is already waiting to take control
-              this.newWorker = reg.waiting;
-              window.confirm("new verison bro");
-
-              /*
-              code omitted: displays a snackbar to the user to manually trigger
-              activation of the new SW. This will be done by calling skipWaiting()
-              then reloading the page
-            */
-            }
-
-            // handler for updates occuring while the app is running, either actively or in the background
-            reg.onupdatefound = () => {
-              this.newWorker = reg.installing;
-
-              this.newWorker.onstatechange = () => {
-                if (this.newWorker.state === "installed") {
-                  if (reg.active) {
-                    // a version of the SW already has control over the app
-                    /*
-                    same code omitted
-                  */
-                  } else {
-                    // very first service worker registration, do nothing
-                  }
-                }
-              };
-            };
-          });
-      }
-    } catch (error) {
-      //
-    }
-
-    try {
       const version = window.localStorage.getItem("version");
-
-      if (!version || version !== 1) {
-        console.log("rohan123 reload");
-        window.localStorage.setItem("version", 1);
-      }
+      console.log("App -> version", version);
+      // if (!version || version !== 1) {
+      //   window.confirm(`New content is available!. Click OK to refresh`);
+      //   window.localStorage.setItem("version", 1);
+      // }
     } catch (error) {
       //
     }
-    // window.confirm(`New content is available!. Click OK to refresh`);
   }, []);
 
   let darkModeClass = "bg-white";
