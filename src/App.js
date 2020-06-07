@@ -78,37 +78,26 @@ function App() {
   // return <SpringExp />;
 
   return (
-    <CacheBuster>
-      {({ loading, isLatestVersion, refreshCacheAndReload }) => {
-        if (loading) return null;
-        if (!loading && !isLatestVersion) {
-          refreshCacheAndReload();
-        }
+    <div className="App">
+      <div className={darkModeClass} style={{ height: "100vh" }}>
+        <div className="">
+          <Router>
+            {/* <NavBar /> */}
+            <Switch>
+              <Route path="/" component={ThirdNewUI} exact />
 
-        return (
-          <div className="App">
-            <div className={darkModeClass} style={{ height: "100vh" }}>
-              <div className="">
-                <Router>
-                  {/* <NavBar /> */}
-                  <Switch>
-                    <Route path="/" component={ThirdNewUI} exact />
+              <Route path="/exp" component={Experience} exact />
 
-                    <Route path="/exp" component={Experience} exact />
+              <Route path="/Projects" component={Project} exact />
 
-                    <Route path="/Projects" component={Project} exact />
-
-                    <Route path="/edu" component={Education} exact />
-                    <Route path="/pivottable" component={PivotTable} />
-                    <Route component={NotFound} />
-                  </Switch>
-                </Router>
-              </div>
-            </div>
-          </div>
-        );
-      }}
-    </CacheBuster>
+              <Route path="/edu" component={Education} exact />
+              <Route path="/pivottable" component={PivotTable} />
+              <Route component={NotFound} />
+            </Switch>
+          </Router>
+        </div>
+      </div>
+    </div>
   );
 }
 
