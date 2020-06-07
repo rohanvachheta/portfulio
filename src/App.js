@@ -36,7 +36,9 @@ function App() {
       if (version && version !== 1) {
         window.confirm(`New content is available!. Click OK to refresh`);
         window.localStorage.setItem("version", 1);
+        return;
       }
+      window.localStorage.setItem("version", 2);
     } catch (error) {
       //
     }
