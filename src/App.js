@@ -33,10 +33,10 @@ function App() {
     try {
       const version = window.localStorage.getItem("version");
       console.log("App -> version", version);
-      // if (!version || version !== 1) {
-      //   window.confirm(`New content is available!. Click OK to refresh`);
-      //   window.localStorage.setItem("version", 1);
-      // }
+      if (version && version !== 1) {
+        window.confirm(`New content is available!. Click OK to refresh`);
+        window.localStorage.setItem("version", 1);
+      }
     } catch (error) {
       //
     }
