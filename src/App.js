@@ -9,6 +9,7 @@ import About from "./components/About/About";
 import Experience from "./components/Exp/Experience";
 import Education from "./components/Education/Education";
 import Project from "./components/Projects/Project";
+import AutoReload from "./components/AutoReload";
 import { Workbox } from "workbox-window";
 
 // css
@@ -34,7 +35,6 @@ function App() {
       const version = window.localStorage.getItem("version");
       console.log("App -> version", version);
       if (version && parseInt(version) !== 1) {
-        window.localStorage.setItem("version", 1);
         window.location.reload();
         return;
       }
@@ -52,6 +52,7 @@ function App() {
 
   return (
     <div className="App">
+      <AutoReload />
       <div className={darkModeClass} style={{ height: "100vh" }}>
         <div className="">
           <Router>
