@@ -58,7 +58,7 @@ function App() {
           <Router>
             {/* <NavBar /> */}
             <Switch>
-              <Route path="/" component={ThirdNewUI} exact />
+              <Route path="/" component={About} exact />
 
               <Route path="/exp" component={Experience} exact />
 
