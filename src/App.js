@@ -77,10 +77,66 @@
 
 // export default App;
 
-import React from "react";
+import React,{Component} from "react";
 
-const App = () => {
-  return <div className="p-3">this site is currently unavailable, sorry</div>;
-};
+
+import { Document, Page } from 'react-pdf'
+
+import { pdfjs } from 'react-pdf'
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${
+  pdfjs.version
+}/pdf.worker.js`
+
+const samplePDF =
+  'https://wotnot-conversation-attachment-staging.storage.googleapis.com/2078/Visitor%20-%20A8-4Xcix6Y5hBqN172917192501CagDHnWH/71f7e31e-4544-11eb-b701-6a78cc3c2b14_A%20Sample%20PDF.pdf'
+
+const anotherSamplePdf =
+  'https://tetra4d.com/wp-content/uploads/2018/12/PartList-Helico.pdf'
+
+class App extends Component {
+  state = {
+    numPages: null,
+    fileUrl: samplePDF
+  }
+
+  onDocumentLoadSuccess = document => {
+    const { numPages } = document
+    this.setState({
+      numPages
+    })
+  }
+
+  handleUrlChange = () => {
+    const { fileUrl } = this.state
+    const newUrl = fileUrl === samplePDF ? anotherSamplePdf : samplePDF
+    this.setState({
+      fileUrl: newUrl
+    })
+  }
+
+  render() {
+    const { numPages, fileUrl } = this.state
+
+    return (
+      <>
+        <button onClick={this.handleUrlChange}>Toggle PDF URL</button>
+        <Document
+          // key={fileUrl} // optional, doesn't affect things
+          file={fileUrl}
+          onLoadSuccess={this.onDocumentLoadSuccess}
+        >
+          {Array.from(new Array(numPages), (el, index) => (
+            <Page
+              key={`page_${index + 1}`}
+              pageNumber={index + 1}
+              width={600}
+            />
+          ))}
+        </Document>
+      </>
+    )
+  }
+}
+
 
 export default App;
