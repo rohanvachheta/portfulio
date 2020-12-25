@@ -117,7 +117,8 @@ class App extends Component {
     const files = {
       url: fileUrl,
       httpHeaders: {
-        "Access-Control-Allow-Origin": "https://rohanvachhetap.netlify.app/",
+        "Access-Control-Allow-Origin":
+          "https://cors-anywhere.herokuapp.com/https://rohanvachhetap.netlify.app/",
         "Access-Control-Allow-Methods": "GET, POST, PUT",
         "Access-Control-Allow-Headers": "Content-Type",
       },
