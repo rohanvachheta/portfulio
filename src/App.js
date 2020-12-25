@@ -94,7 +94,6 @@ const files = {
   url: `https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44678.pdf`,
   httpHeaders: {
     "Access-Control-Allow-Origin": "https://rohanvachhetap.netlify.app/",
-    "Access-Control-Allow-Methods": "GET, POST, PUT",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, HEAD, OPTIONS",
     "cache-control": "max-age=5184000",
