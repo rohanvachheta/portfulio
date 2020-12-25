@@ -117,8 +117,7 @@ class App extends Component {
     const files = {
       url: fileUrl,
       httpHeaders: {
-        "X-CustomHeader": "40359820958024350238508234",
-        "Access-Control-Allow-Origin": "http://localhost:8080/",
+        "Access-Control-Allow-Origin": "https://rohanvachhetap.netlify.app/",
         "Access-Control-Allow-Methods": "GET, POST, PUT",
         "Access-Control-Allow-Headers": "Content-Type",
       },
