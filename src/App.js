@@ -77,52 +77,59 @@
 
 // export default App;
 
-import React,{Component} from "react";
+import React, { Component } from "react";
 
+import { Document, Page } from "react-pdf";
 
-import { Document, Page } from 'react-pdf'
-
-import { pdfjs } from 'react-pdf'
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${
-  pdfjs.version
-}/pdf.worker.js`
+import { pdfjs } from "react-pdf";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const samplePDF =
-  'https://wotnot-conversation-attachment-staging.storage.googleapis.com/2078/Visitor%20-%20A8-4Xcix6Y5hBqN172917192501CagDHnWH/71f7e31e-4544-11eb-b701-6a78cc3c2b14_A%20Sample%20PDF.pdf'
+  "https://www.r-5.org/files/books/ethology/corporate/behaviour/Richard_Templar-The_Rules_of_Work-EN.pdf";
 
 const anotherSamplePdf =
-  'https://tetra4d.com/wp-content/uploads/2018/12/PartList-Helico.pdf'
+  "https://tetra4d.com/wp-content/uploads/2018/12/PartList-Helico.pdf";
+
+const files = {
+  url: samplePDF,
+  httpHeaders: {
+    "Access-Control-Allow-Origin": "https://rohanvachhetap.netlify.app/",
+    "Access-Control-Allow-Methods": "GET, POST, PUT",
+    "Access-Control-Allow-Headers": "Content-Type",
+  },
+  withCredentials: true,
+};
 
 class App extends Component {
   state = {
     numPages: null,
-    fileUrl: samplePDF
-  }
+    fileUrl: samplePDF,
+  };
 
-  onDocumentLoadSuccess = document => {
-    const { numPages } = document
+  onDocumentLoadSuccess = (document) => {
+    const { numPages } = document;
     this.setState({
-      numPages
-    })
-  }
+      numPages,
+    });
+  };
 
   handleUrlChange = () => {
-    const { fileUrl } = this.state
-    const newUrl = fileUrl === samplePDF ? anotherSamplePdf : samplePDF
+    const { fileUrl } = this.state;
+    const newUrl = fileUrl === samplePDF ? anotherSamplePdf : samplePDF;
     this.setState({
-      fileUrl: newUrl
-    })
-  }
+      fileUrl: newUrl,
+    });
+  };
 
   render() {
-    const { numPages, fileUrl } = this.state
+    const { numPages, fileUrl } = this.state;
 
     return (
       <>
         <button onClick={this.handleUrlChange}>Toggle PDF URL</button>
         <Document
           // key={fileUrl} // optional, doesn't affect things
-          file={fileUrl}
+          file={files}
           onLoadSuccess={this.onDocumentLoadSuccess}
         >
           {Array.from(new Array(numPages), (el, index) => (
@@ -134,9 +141,8 @@ class App extends Component {
           ))}
         </Document>
       </>
-    )
+    );
   }
 }
-
 
 export default App;
