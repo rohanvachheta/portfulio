@@ -85,20 +85,10 @@ import { pdfjs } from "react-pdf";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const samplePDF =
-  "https://cors-anywhere.herokuapp.com/https://www.r-5.org/files/books/ethology/corporate/behaviour/Richard_Templar-The_Rules_of_Work-EN.pdf";
+  "https://wotnot-conversation-attachment-staging.storage.googleapis.com/2078/Visitor%20-%20A8-4Xcix6Y5hBqN172917192501CagDHnWH/71f7e31e-4544-11eb-b701-6a78cc3c2b14_A%20Sample%20PDF.pdf";
 
 const anotherSamplePdf =
   "https://tetra4d.com/wp-content/uploads/2018/12/PartList-Helico.pdf";
-
-const files = {
-  url: samplePDF,
-  httpHeaders: {
-    "Access-Control-Allow-Origin": "https://rohanvachhetap.netlify.app",
-    "Access-Control-Allow-Methods": "GET, POST, PUT",
-    "Access-Control-Allow-Headers": "Content-Type",
-  },
-  withCredentials: true,
-};
 
 class App extends Component {
   state = {
@@ -129,7 +119,7 @@ class App extends Component {
         <button onClick={this.handleUrlChange}>Toggle PDF URL</button>
         <Document
           // key={fileUrl} // optional, doesn't affect things
-          file={files}
+          file={fileUrl}
           onLoadSuccess={this.onDocumentLoadSuccess}
         >
           {Array.from(new Array(numPages), (el, index) => (
