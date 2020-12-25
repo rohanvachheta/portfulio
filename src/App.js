@@ -114,12 +114,23 @@ class App extends Component {
   render() {
     const { numPages, fileUrl } = this.state;
 
+    const files = {
+      url: fileUrl,
+      httpHeaders: {
+        "X-CustomHeader": "40359820958024350238508234",
+        "Access-Control-Allow-Origin": "http://localhost:8080/",
+        "Access-Control-Allow-Methods": "GET, POST, PUT",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+      withCredentials: true,
+    };
+
     return (
       <>
         <button onClick={this.handleUrlChange}>Toggle PDF URL</button>
         <Document
           // key={fileUrl} // optional, doesn't affect things
-          file={fileUrl}
+          file={files}
           onLoadSuccess={this.onDocumentLoadSuccess}
         >
           {Array.from(new Array(numPages), (el, index) => (
