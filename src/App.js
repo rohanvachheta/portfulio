@@ -85,7 +85,7 @@ import { pdfjs } from "react-pdf";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const samplePDF =
-  "https://www.r-5.org/files/books/ethology/corporate/behaviour/Richard_Templar-The_Rules_of_Work-EN.pdf";
+  "https://cors-anywhere.herokuapp.com/https://www.r-5.org/files/books/ethology/corporate/behaviour/Richard_Templar-The_Rules_of_Work-EN.pdf";
 
 const anotherSamplePdf =
   "https://tetra4d.com/wp-content/uploads/2018/12/PartList-Helico.pdf";
@@ -93,7 +93,7 @@ const anotherSamplePdf =
 const files = {
   url: samplePDF,
   httpHeaders: {
-    "Access-Control-Allow-Origin": "https://rohanvachhetap.netlify.app/",
+    "Access-Control-Allow-Origin": "https://rohanvachhetap.netlify.app",
     "Access-Control-Allow-Methods": "GET, POST, PUT",
     "Access-Control-Allow-Headers": "Content-Type",
   },
