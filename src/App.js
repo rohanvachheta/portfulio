@@ -77,7 +77,7 @@
 
 // export default App;
 
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 
 import { Document, Page } from "react-pdf";
 
@@ -90,11 +90,44 @@ const samplePDF =
 const anotherSamplePdf =
   "https://tetra4d.com/wp-content/uploads/2018/12/PartList-Helico.pdf";
 
+const files = {
+  url: `https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44678.pdf`,
+  httpHeaders: {
+    "Access-Control-Allow-Origin": "https://rohanvachhetap.netlify.app/",
+    "Access-Control-Allow-Methods": "GET, POST, PUT",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, HEAD, OPTIONS",
+    "cache-control": "max-age=5184000",
+    "content-length": "846752",
+    "content-type": "application/pdf",
+    date: "Fri, 25 Dec 2020 16:24:00 GMT",
+    expires: "Tue, 23 Feb 2021 16:24:00 GMT",
+    "last-modified": "Mon, 31 Oct 2016 13:42:01 GMT",
+    pragma: "public",
+    server: "nginx",
+    "cross-origin-resource-policy": "cross-origin",
+    "x-content-type-options": "nosniff",
+  },
+  // withCredentials: true,
+};
+
 class App extends Component {
   state = {
     numPages: null,
     fileUrl: samplePDF,
   };
+
+  // useEffect(()=>{
+
+  // },[])
+
+  componentDidMount() {
+    fetch("https://googleads.g.doubleclick.net/pagead/id").then((response) =>
+      console.log(response)
+    );
+  }
+
+  // https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44678.pdf
 
   onDocumentLoadSuccess = (document) => {
     const { numPages } = document;
@@ -112,17 +145,7 @@ class App extends Component {
   };
 
   render() {
-    const { numPages, fileUrl } = this.state;
-
-    const files = {
-      url: fileUrl,
-      // httpHeaders: {
-      //   "Access-Control-Allow-Origin": "https://rohanvachhetap.netlify.app/",
-      //   "Access-Control-Allow-Methods": "GET, POST, PUT",
-      //   "Access-Control-Allow-Headers": "Content-Type",
-      // },
-      withCredentials: true,
-    };
+    const { numPages } = this.state;
 
     return (
       <>
