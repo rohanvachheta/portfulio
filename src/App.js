@@ -146,7 +146,7 @@ class App extends Component {
   render() {
     const { numPages } = this.state;
 
-    return "कार्य प्रगति पर है";
+    return <center>"कार्य प्रगति पर है.."</center>;
 
     return (
       <>
