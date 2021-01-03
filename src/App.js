@@ -146,6 +146,8 @@ class App extends Component {
   render() {
     const { numPages } = this.state;
 
+    return "कार्य प्रगति पर है";
+
     return (
       <>
         <button onClick={this.handleUrlChange}>Toggle PDF URL</button>
