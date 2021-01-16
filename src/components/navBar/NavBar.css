@@ -26,6 +26,7 @@ a > span:after {
 a {
   padding: 10px;
   transition: 0.7s;
+  display: inline-block;
 }
 a:before,
 a:after {
