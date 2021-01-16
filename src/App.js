@@ -48,32 +48,30 @@ function App() {
   if (localStorage.getItem("darkMode")) {
     darkModeClass = " bg-dark text-white";
   }
-  // return <SpringExp />;
-  return <center>"कार्य प्रगति पर है.."</center>;
 
-  // return (
-  //   <div className="App">
-  //     <AutoReload />
-  //     <div className={darkModeClass} style={{ height: "100vh" }}>
-  //       <div className="">
-  //         <Router>
-  //           {/* <NavBar /> */}
-  //           <Switch>
-  //             <Route path="/" component={ThirdNewUI} exact />
+  return (
+    <div className="container">
+      <AutoReload />
+      <div className={darkModeClass} style={{ height: "100vh" }}>
+        <div className="">
+          <Router>
+            <NavBar />
+            <Switch>
+              <Route path="/" component={About} exact />
 
-  //             <Route path="/exp" component={Experience} exact />
+              <Route path="/exp" component={Experience} exact />
 
-  //             <Route path="/Projects" component={Project} exact />
+              <Route path="/Projects" component={Project} exact />
 
-  //             <Route path="/edu" component={Education} exact />
-  //             <Route path="/pivottable" component={PivotTable} />
-  //             <Route component={NotFound} />
-  //           </Switch>
-  //         </Router>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
+              <Route path="/edu" component={Education} exact />
+              <Route path="/pivottable" component={PivotTable} />
+              <Route component={NotFound} />
+            </Switch>
+          </Router>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App;

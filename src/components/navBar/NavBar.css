@@ -46,7 +46,7 @@ a:after {
 }
 a:hover {
   color: white;
-  background: rgba(0, 255, 170, 0.2);
+  background: rgba(10, 56, 41, 0.2);
   border-radius: 15px;
   opacity: 0.9;
 }
